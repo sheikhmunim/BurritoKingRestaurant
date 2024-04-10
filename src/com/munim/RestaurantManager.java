@@ -2,9 +2,12 @@ package com.munim;
 
 import java.util.Scanner;
 
+import static com.munim.Fries.cookFries;
+
 public class RestaurantManager {
 
-    private static int friesRemaining = 0;
+//    public static int friesInventory = 10;
+//    public static int Inventory = Fries.getFriesInventory();
 
     public static void orderBurrito(){
         System.out.println("Ordered 1 for $ " + Burrito.getPrice());
@@ -16,14 +19,17 @@ public class RestaurantManager {
         System.out.println("Ordered 1 for $" + Soda.getPrice());
     }
 
-    public static void orderFries(int servings){
-        if(servings <= Fries.getServings()){
-            System.out.println("Ordered"+ servings + "servings of fries for $"+ servings*Fries.getPrice());
-            Fries.cookFries();
-            orderFries(servings);
-        }
-        else {
-            System.out.println( servings +" "+ "Fries served and the bill is" +" "+ servings*Fries.getPrice());
+    public static void orderFries(int quantity) {
+        if (Fries.getFriesInventory() >= quantity) {
+            Fries.updateInventory(quantity);
+            double total = Fries.getPrice() * quantity;
+            System.out.println("Ordered " + quantity + " serving(s) of fries for a total of $" + total);
+        } else {
+            int friesToCook = quantity - Fries.getFriesInventory();
+//            friesInventory = 0;
+            cookFries(friesToCook);
+            double total = Fries.getPrice() * quantity;
+            System.out.println("Ordered " + quantity + " serving(s) of fries for a total of $" + total);
         }
     }
 

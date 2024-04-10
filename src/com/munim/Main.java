@@ -26,8 +26,8 @@ public class Main {
                         break;
                     case 2:
                         System.out.print("Enter number of servings for Fries: ");
-                        int servings = scanner.nextInt();
-                        RestaurantManager.orderFries(servings);
+                        int friesQuantity = scanner.nextInt();
+                        RestaurantManager.orderFries(friesQuantity);
                         break;
                     case 3:
                         RestaurantManager.orderSoda();
