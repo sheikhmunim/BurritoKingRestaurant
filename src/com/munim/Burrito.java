@@ -20,8 +20,4 @@ public class Burrito {
         price = newPrice;
     }
 
-    public static int getPreparationTime(){
-        return preparationTime;
-    }
-
 }

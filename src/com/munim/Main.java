@@ -9,8 +9,6 @@ public class Main {
 
         int choice = 0;
 
-
-
             while (choice!=4) {
                 System.out.println("=======================================");
                 System.out.println("Burrito King");
@@ -34,12 +32,13 @@ public class Main {
                 switch (choice) {
                     case 1:
                         int selection = 0;
-                        while (selection!=4) {
+                        while (selection!=5) {
                             System.out.println(">Select the food item");
                             System.out.println("1. Burrito");
                             System.out.println("2. Fries");
                             System.out.println("3. Soda");
-                            System.out.println("4. No more");
+                            System.out.println("4. Meal");
+                            System.out.println("5. No more");
                             System.out.println("Please Select: ");
 
                             try {
@@ -74,6 +73,14 @@ public class Main {
                                     break;
 
                                 case 4:
+                                    System.out.println("How many Meals would you like to buy(Get 1 dollar Discount with each meal item)");
+                                    int mealsQuantity = scanner.nextInt();
+                                    RestaurantManager.orderMeals(mealsQuantity);
+                                    SalesReport.recordSale(Meals.getName(),mealsQuantity,Meals.getPrice());
+                                    PreparationTime.recordTime(Meals.getName(),mealsQuantity,Meals.preparationTime());
+                                    break;
+
+                                case 5:
                                     SalesReport.handlePayment(SalesReport.calculateTotal());
                                     PreparationTime.totalTime();
                                     break;

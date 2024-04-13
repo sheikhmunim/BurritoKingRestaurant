@@ -31,27 +31,12 @@ public class Fries {
     public static void setPrice(double newPrice){
         price= newPrice;
     }
-
-    public static int getServings(){
-        return friesInventory;
-    }
-
-    public static void addServings(int additionalServings){
-        friesInventory += additionalServings;
-    }
-
-    public static void removeServings(int servingsToRemove){
-        friesInventory -= servingsToRemove;
-    }
-
     public static void cookFries(int quantity) {
         int batches = (int) Math.ceil(quantity / 5.0);
         int newFriesInventory = batches * 5;
         friesInventory = newFriesInventory;
-        System.out.println("Not enough fries available, Cooking " + newFriesInventory + " serving of fries.");
+        System.out.println("Cafe needs to cook some more, Please wait, Cooking " + newFriesInventory + " serving of fries.");
 
     }
-
-
 
 }
