@@ -7,8 +7,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        int choice = 0;
 
-            while (true) {
+
+
+            while (choice!=4) {
                 System.out.println("=======================================");
                 System.out.println("Burrito King");
                 System.out.println("=======================================");
@@ -19,39 +22,62 @@ public class Main {
                 System.out.println("4. Exit");
                 System.out.print("Enter your choice: ");
 
-                int choice = scanner.nextInt();
 
+        try{
+
+                choice = scanner.nextInt();
+
+        } catch (Exception e) {
+            System.out.println("Invalid input. Please enter an integer.");
+            scanner.nextLine();
+        }
                 switch (choice) {
                     case 1:
-                        System.out.println(">Select the food item");
-                        System.out.println("1. Burrito");
-                        System.out.println("2. Fries");
-                        System.out.println("3. Soda");
-                        System.out.println("4. No more");
-                        System.out.println("Please Select: ");
-                        int selection = scanner.nextInt();
-                        switch (selection) {
-                            case 1:
-                                System.out.println("How many burritos would you like to buy:");
-                                int burritoQuantity = scanner.nextInt();
-                                RestaurantManager.orderBurrito(burritoQuantity);
-                                SalesReport.recordSale(Burrito.getName(), burritoQuantity,Burrito.getPrice());
-//                                break;
-                            case 2:
-                                System.out.print("Enter number of servings for Fries: ");
-                                int friesQuantity = scanner.nextInt();
-                                RestaurantManager.orderFries(friesQuantity);
-                                SalesReport.recordSale(Fries.getName(),friesQuantity, Fries.getPrice());
-//                                break;
-                            case 3:
-                                System.out.println("How many Soda would you like to buy");
-                                int sodaQuantity = scanner.nextInt();
-                                RestaurantManager.orderSoda(sodaQuantity);
-                                SalesReport.recordSale(Soda.getName(),sodaQuantity,Soda.getPrice());
-//                                break;
+                        int selection = 0;
+                        while (selection!=4) {
+                            System.out.println(">Select the food item");
+                            System.out.println("1. Burrito");
+                            System.out.println("2. Fries");
+                            System.out.println("3. Soda");
+                            System.out.println("4. No more");
+                            System.out.println("Please Select: ");
 
-                            case 4:
-                            {}
+                            try {
+                                selection = scanner.nextInt();
+
+                            } catch (Exception e) {
+                                System.out.println("Invalid input. Please enter an integer.");
+                                // Clear the scanner's buffer to prevent an infinite loop
+                                scanner.nextLine();
+                            }
+                            switch (selection) {
+                                case 1:
+                                    System.out.println("How many burritos would you like to buy:");
+                                    int burritoQuantity = scanner.nextInt();
+                                    RestaurantManager.orderBurrito(burritoQuantity);
+                                    SalesReport.recordSale(Burrito.getName(), burritoQuantity, Burrito.getPrice());
+                                    PreparationTime.recordTime(Burrito.getName(),burritoQuantity, Burrito.getPrparationTime());
+                                    break;
+                                case 2:
+                                    System.out.print("Enter number of servings for Fries: ");
+                                    int friesQuantity = scanner.nextInt();
+                                    RestaurantManager.orderFries(friesQuantity);
+                                    SalesReport.recordSale(Fries.getName(), friesQuantity, Fries.getPrice());
+                                    PreparationTime.recordTime(Fries.getName(),friesQuantity,Fries.getPreparationTime());
+                                    break;
+                                case 3:
+                                    System.out.println("How many Soda would you like to buy");
+                                    int sodaQuantity = scanner.nextInt();
+                                    RestaurantManager.orderSoda(sodaQuantity);
+                                    SalesReport.recordSale(Soda.getName(), sodaQuantity, Soda.getPrice());
+                                    PreparationTime.recordTime(Soda.getName(),sodaQuantity,Soda.getPreparationTime());
+                                    break;
+
+                                case 4:
+                                    SalesReport.handlePayment(SalesReport.calculateTotal());
+                                    PreparationTime.totalTime();
+                                    break;
+                            }
                         }
                         break;
                     case 2:
@@ -67,7 +93,7 @@ public class Main {
                         break;
                     case 4:
                         System.out.println("Exiting the system. Goodbye!");
-                        System.exit(0);
+//                        System.exit(0);
                         break;
                     default:
                         System.out.println("Invalid choice. Please enter a number between 1 and 4.");

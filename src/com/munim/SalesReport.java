@@ -1,6 +1,8 @@
 package com.munim;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
+
 public class SalesReport {
     public static Map<String, Double> sales = new HashMap<>();
 
@@ -16,6 +18,29 @@ public class SalesReport {
     }
     public static void printReport() {
         sales.forEach((item, total) -> System.out.println(item + " sold for total $" + total));
+    }
+
+    public static void handlePayment(double total){
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.print("Please enter money: ");
+
+            double paid = 0;
+
+            try {
+                paid = Double.parseDouble(scanner.nextLine());
+            }catch (Exception e){
+                System.out.println("Invalid input. Please enter an integer.");
+                scanner.nextLine();
+            }
+            if (paid < total) {
+                System.out.println("Sorry, that’s not enough to pay for the order");
+            } else {
+                double change = paid - total;
+                System.out.println("Change returned $" + change);
+                break;
+            }
+        }
     }
 
 }

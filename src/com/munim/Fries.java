@@ -4,6 +4,12 @@ public class Fries {
     private static double price = 4.0;
     private static int friesInventory = 10;
 
+    private static final int preparationTime = 8;
+
+    public static int getPreparationTime(){
+        return preparationTime;
+    }
+
     public static String getName(){
         return "Fries";
     }
@@ -23,22 +29,18 @@ public class Fries {
     }
 
     public static void setPrice(double newPrice){
-
         price= newPrice;
     }
 
     public static int getServings(){
-
         return friesInventory;
     }
 
     public static void addServings(int additionalServings){
-
         friesInventory += additionalServings;
     }
 
     public static void removeServings(int servingsToRemove){
-
         friesInventory -= servingsToRemove;
     }
 

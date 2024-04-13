@@ -6,9 +6,6 @@ import static com.munim.Fries.cookFries;
 
 public class RestaurantManager {
 
-//    public static int friesInventory = 10;
-//    public static int Inventory = Fries.getFriesInventory();
-
     public static void orderBurrito(int quantity){
         double burrito = quantity*Burrito.getPrice();
         System.out.println("Ordered for $ " + burrito);
@@ -44,17 +41,6 @@ public class RestaurantManager {
         Soda.setPrice(scanner.nextDouble());
         System.out.println("Price update Successfully");
     }
-
-    public static void produceSalesReport(){
-        System.out.println("== Sales Report ==");
-        System.out.println("Total sold");
-    }
-
-
-
-
-
-
 
 
 
