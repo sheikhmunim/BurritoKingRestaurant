@@ -4,6 +4,10 @@ public class Fries {
     private static double price = 4.0;
     private static int friesInventory = 10;
 
+    public static String getName(){
+        return "Fries";
+    }
+
     public static double getPrice() {
         return price;
     }

@@ -5,8 +5,8 @@ public class Burrito {
     private static final int preparationTime = 9;
 
 
-    public Burrito() {
-
+    public static String getName(){
+        return "Burrito";
     }
 
     public static double getPrice() {

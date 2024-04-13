@@ -9,14 +9,15 @@ public class RestaurantManager {
 //    public static int friesInventory = 10;
 //    public static int Inventory = Fries.getFriesInventory();
 
-    public static void orderBurrito(){
-        System.out.println("Ordered 1 for $ " + Burrito.getPrice());
+    public static void orderBurrito(int quantity){
+        double burrito = quantity*Burrito.getPrice();
+        System.out.println("Ordered for $ " + burrito);
 
     }
 
-    public static void orderSoda(){
-
-        System.out.println("Ordered 1 for $" + Soda.getPrice());
+    public static void orderSoda(int quantity){
+        double soda = quantity*Soda.getPrice();
+        System.out.println("Ordered for $" + soda);
     }
 
     public static void orderFries(int quantity) {
