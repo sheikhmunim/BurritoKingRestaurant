@@ -26,8 +26,8 @@ public class Main {
                 choice = scanner.nextInt();
 
         } catch (Exception e) {
-            System.out.println("Invalid input. Please enter an integer.");
-            scanner.nextLine();
+            System.out.println("Invalid input. Please enter an integer.");  //for handling unwanted character rather than integer
+            scanner.nextLine(); //for reading unwanted input such as string
         }
                 switch (choice) {
                     case 1:
@@ -46,7 +46,6 @@ public class Main {
 
                             } catch (Exception e) {
                                 System.out.println("Invalid input. Please enter an integer.");
-                                // Clear the scanner's buffer to prevent an infinite loop
                                 scanner.nextLine();
                             }
                             switch (selection) {
@@ -54,8 +53,8 @@ public class Main {
                                     System.out.println("How many burritos would you like to buy:");
                                     int burritoQuantity = scanner.nextInt();
                                     RestaurantManager.orderBurrito(burritoQuantity);
-                                    SalesReport.recordSale(Burrito.getName(), burritoQuantity, Burrito.getPrice());
-                                    PreparationTime.recordTime(Burrito.getName(),burritoQuantity, Burrito.getPrparationTime());
+                                    SalesReport.recordSale(Burrito.getName(), burritoQuantity, Burrito.getPrice()); //accumulate total sales of burrito
+                                    PreparationTime.recordTime(Burrito.getName(),burritoQuantity, Burrito.getPrparationTime()); //accumulate total time to prepare order
                                     break;
                                 case 2:
                                     System.out.print("Enter number of servings for Fries: ");

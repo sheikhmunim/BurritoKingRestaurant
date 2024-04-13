@@ -1,5 +1,8 @@
 package com.munim;
 
+/***
+ * It is a simple soda class
+ */
 public class Soda {
 
     private static double price = 2.50;

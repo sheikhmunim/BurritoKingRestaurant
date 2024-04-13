@@ -4,6 +4,11 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class SalesReport {
+
+    /***
+     * Maps the items with its price and store it in sales variable
+     * Key: food item name, Value: price of the food item
+     */
     public static Map<String, Double> sales = new HashMap<>();
 
     public static void recordSale(String item, int quantity, double price) {
@@ -19,6 +24,11 @@ public class SalesReport {
     public static void printReport() {
         sales.forEach((item, total) -> System.out.println(item + " sold for total $" + total));
     }
+
+    /***
+     * handles the payment and return the changes
+     * @param total this is a parameter for handlePayment method
+     */
 
     public static void handlePayment(double total){
         Scanner scanner = new Scanner(System.in);

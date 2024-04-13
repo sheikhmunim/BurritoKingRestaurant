@@ -1,5 +1,10 @@
 package com.munim;
 
+/***
+ * it is a simple burrito class
+ * with all the details about Burrito
+ */
+
 public class Burrito {
     private static double price = 7.0;
     private static final int preparationTime = 9;
