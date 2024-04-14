@@ -1,8 +1,8 @@
 package com.munim;
 
 public class Fries {
-    private static double price = 4.0;
-    private static int friesInventory = 20;  //by default the friesInventory is set to 20
+    public static double price = 4.0;
+    public static int friesInventory = 20;  //by default the friesInventory is set to 20
 
     private static final int preparationTime = 8;
 
