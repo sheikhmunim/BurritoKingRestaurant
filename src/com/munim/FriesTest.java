@@ -6,18 +6,29 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FriesTest {
     @Test
-    void testUpdateInventory() {
-        // Set up initial inventory
+    void toTestInventoryUpdate() {
+
         int initialInventory = 50;
-        Fries.friesInventory = initialInventory;
+        Fries.friesInventory = initialInventory; // Set up initial inventory
 
-        // Call the method with a quantity to update
+
         int quantityToUpdate = 10;
-        Fries.updateInventory(quantityToUpdate);
+        Fries.updateInventory(quantityToUpdate); // Call the method with a quantity for update
 
-        // Assert that the inventory has been updated correctly
+
         int expectedInventory = initialInventory - quantityToUpdate;
-        assertEquals(expectedInventory, Fries.friesInventory);
+        assertEquals(expectedInventory, Fries.friesInventory); // Assert that the inventory has been updated correctly
     }
+
+
+    @Test
+    void puttingQuantityShouldCookBatchOfNeededFries() {
+        Fries.cookFries(10);
+        assertEquals(10, Fries.friesInventory, "Inventory should match cooked fries for exact multiples of 5.");
+
+
+    }
+
+
 }
 
